@@ -1,5 +1,12 @@
 
-#First-Selenium-Page-Objects
-Showcase maven POM to build simple java selenium tests in page object design pattern.  
+Переделал через Page Object Model
+Перед запуском тестов проверяется соеденение,если соеденения нет ,то тесты не запускаются. Тест с тремя параметрами:
+
+-Пустой вход
+
+-Корректный Email,некорректный пароль
+
+-Корректный Email,корректный пароль
+
 
 
