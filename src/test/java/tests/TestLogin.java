@@ -28,7 +28,15 @@ public class TestLogin extends Base{
     public void setUp() {
         login = new Login(driver);
     }
+    @Test()
+    public void invalidPassword1() {
 
+
+
+        login.with("zolotoy18.12.1988@gmail.com", "123");
+        assertTrue("Вы ввели неверный пароль", login.failureMessagePresent());
+
+    }
     @Test
     public void voidEnter() {
 login.with("", "");
@@ -36,13 +44,7 @@ login.with("", "");
 
     }
 
-    @Test
-    public void invalidPassword() {
 
-        login.with("zolotoy18.12.1988@gmail.com", "123");
-        assertTrue("Вы ввели неверный пароль", login.failureMessagePresent());
-
-    }
     @Test
     public void successLogin() {
 

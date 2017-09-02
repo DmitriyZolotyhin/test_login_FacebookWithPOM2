@@ -6,7 +6,7 @@ package tests;
  */
 public class Config {
     public static final String host           = System.getProperty("host", "localhost");
-    public static final String browser        = System.getProperty("browser", "firefox");
+    public static final String browser        = System.getProperty("browser", "internetexplorer");
     //Выбрать на каком браузере запускать тест: firefox   htmlunit  internetexplorer chrome
     public static final String platform       = System.getProperty("platform", "Windows 7");
     public static final String sauceUser      = System.getenv("SAUCE_USERNAME");
