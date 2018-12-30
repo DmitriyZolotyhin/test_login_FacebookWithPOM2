@@ -11,6 +11,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import tests.Config;
 
+import java.io.IOException;
 import java.net.URL;
 
 
@@ -56,16 +57,19 @@ public class Base {
                     case "ie":
                     case "internetexplorer":
 
-                        // Для использования IE необходимо установить драйвер IE.
-                        //Существует 2 версии драйвера IE, 32-битные и 64-битные. Хотя машина, на которой я работаю
-                        // on - 64-битная машина, в настоящее время в 64-разрядной версии имеется ошибка производительности, что означает, что
-                        // метод sendkeys () отправляет каждый символ отдельно на расстоянии 5 секунд и, следовательно, делает его непригодным для использования.
-                        // Вместо этого можно использовать 32-разрядную версию драйвера и не иметь той же проблемы с производительностью.
 
 
+                        Runtime.getRuntime().exec("RunDll32.exe InetCpl.cpl,ClearMyTracksByProcess 255");
                         System.setProperty("webdriver.ie.driver", "C:\\Driver\\IEDriverServer.exe" );
 
-                        driver = new InternetExplorerDriver();
+
+                        DesiredCapabilities capabilities = DesiredCapabilities.internetExplorer();
+                        capabilities.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS, true);
+
+                        capabilities.setCapability("requireWindowFocus", true);
+                        driver = new InternetExplorerDriver(capabilities);
+
+
                         break;
                     case "chrome":
                         //
