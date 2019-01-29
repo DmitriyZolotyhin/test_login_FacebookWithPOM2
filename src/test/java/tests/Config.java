@@ -2,7 +2,7 @@ package tests;
 
 /**
  *  Created by Администратор on 18.05.2017.
- * This code is copied from Dave Haeffners boot camp day 5 example to set up SauceLabs integration.
+
  */
 public class Config {
     public static final String host           = System.getProperty("host", "localhost");
